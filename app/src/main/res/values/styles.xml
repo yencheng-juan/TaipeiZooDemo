@@ -1,0 +1,28 @@
+<resources >
+
+    <style name="PrimaryTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="SecondaryTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TertiaryTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TertiaryTextStyle.PlantDetailLabel">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TertiaryTextStyle.PlantDetailContent">
+
+    </style>
+
+    <style name="roundedCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+</resources>

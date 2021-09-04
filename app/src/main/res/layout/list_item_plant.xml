@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="plant_data"
+            type="com.demo.taipeizoo.model.PlantData" />
+
+        <variable
+            name="plant_click_listener"
+            type="com.demo.taipeizoo.ui.view.adapter.PlantListAdapter.PlantListOnClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:onClick="@{() -> plant_click_listener.onPlantClick(plant_data)}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{plant_data.pic1Url}"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextStyle"
+                android:id="@+id/tv_name_ch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:maxLines="1"
+                android:text="@{plant_data.nameCh}"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/iv_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_photo"
+                app:layout_constraintBottom_toTopOf="@id/tv_also_known"
+                tools:text="水黃皮"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_also_known"
+                style="@style/TertiaryTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:text="@{plant_data.alsoKnown}"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/tv_name_ch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_ch"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="九重吹、水流豆、臭腥仔、鳥樹、重吹舅、掛錢樹、野豆"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

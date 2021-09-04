@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">台北動物園Demo</string>
+
+    <string name="open_link_error">無法以瀏覽器開啟</string>
+
+    <string name="zoo_area_list_error">無法取得動物園區域列表</string>
+    <string name="plant_list_error">無法取得植物列表</string>
+
+    <string name="plant_brief">簡介:</string>
+    <string name="plant_feature">辨認方式:</string>
+    <string name="plant_function">功能性:</string>
+    <string name="plant_update">最後更新:</string>
+</resources>

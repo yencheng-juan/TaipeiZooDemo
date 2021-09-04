@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="plant_data"
+            type="com.demo.taipeizoo.model.PlantData" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:id="@+id/scroll_pics_container"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:scrollbars="none"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_pic_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:visibility="@{plant_data.hasPic1() ? View.VISIBLE : View.GONE}"
+                        android:background="@drawable/plant_detail_image_background"
+                        app:imageUrl="@{plant_data.pic1Url}"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/iv_pic_2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/tv_pic_1_alt"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_pic_1_alt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_horizontal"
+                        android:visibility="@{plant_data.hasPic1() ? View.VISIBLE : View.GONE}"
+                        android:text="@{plant_data.pic1Alt}"
+                        android:textColor="@android:color/white"
+                        android:shadowColor="@android:color/black"
+                        android:shadowRadius="2"
+                        app:layout_constraintStart_toStartOf="@id/iv_pic_1"
+                        app:layout_constraintEnd_toEndOf="@id/iv_pic_1"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_pic_1"/>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_pic_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:visibility="@{plant_data.hasPic2() ? View.VISIBLE : View.GONE}"
+                        android:background="@drawable/plant_detail_image_background"
+                        app:imageUrl="@{plant_data.pic2Url}"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:layout_constraintStart_toEndOf="@id/iv_pic_1"
+                        app:layout_constraintEnd_toStartOf="@id/iv_pic_3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_pic_2_alt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_horizontal"
+                        android:visibility="@{plant_data.hasPic2() ? View.VISIBLE : View.GONE}"
+                        android:text="@{plant_data.pic2Alt}"
+                        android:textColor="@android:color/white"
+                        android:shadowColor="@android:color/black"
+                        android:shadowRadius="2"
+                        app:layout_constraintStart_toStartOf="@id/iv_pic_2"
+                        app:layout_constraintEnd_toEndOf="@id/iv_pic_2"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_pic_2"/>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_pic_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:visibility="@{plant_data.hasPic3() ? View.VISIBLE : View.GONE}"
+                        android:background="@drawable/plant_detail_image_background"
+                        app:imageUrl="@{plant_data.pic3Url}"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:layout_constraintStart_toEndOf="@id/iv_pic_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_pic_3_alt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_horizontal"
+                        android:visibility="@{plant_data.hasPic3() ? View.VISIBLE : View.GONE}"
+                        android:text="@{plant_data.pic3Alt}"
+                        android:textColor="@android:color/white"
+                        android:shadowColor="@android:color/black"
+                        android:shadowRadius="2"
+                        app:layout_constraintStart_toStartOf="@id/iv_pic_3"
+                        app:layout_constraintEnd_toEndOf="@id/iv_pic_3"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_pic_3"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </HorizontalScrollView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name_ch"
+                style="@style/SecondaryTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{plant_data.nameCh}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scroll_pics_container"
+                tools:text="臺灣欒樹" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_family"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@{plant_data.family}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_ch"
+                tools:text="無患子科Sapindaceae" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_genus"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@{plant_data.genus}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_family"
+                tools:text="欒樹屬 Koelreuteria" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name_en"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.nameEn}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_genus"
+                tools:text="Flame gold-rain tree 、Taiwan golden-rain tree、Gloden rain tree、Flamegold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name_latin"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.nameLatin}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_en"
+                tools:text="Koelreuteria henryi Dumm." />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_also_known"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.alsoKnown}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_latin"
+                tools:text="苦苓舅、苦楝舅" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_brief_label"
+                style="@style/TertiaryTextStyle.PlantDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/plant_brief"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_also_known" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_brief"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.brief}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_brief_label"
+                tools:text="臺灣原產，本園各區普遍栽植。由於其開花至果熟期樹冠顏色甚有變化，饒富觀賞價值，故為極佳庭園、行道樹種。" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_feature_label"
+                style="@style/TertiaryTextStyle.PlantDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/plant_feature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_brief" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_feature"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.feature}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_feature_label"
+                tools:text="落葉喬木，幹直立。葉互生，二回奇數或偶數羽狀複葉，小葉10~13枚，紙質，鋸齒緣。蒴果表面具3翅，粉紅色，膨大成氣囊狀。種子球形，黑色。花期9-10月，果期10-12月。" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_function_label"
+                style="@style/TertiaryTextStyle.PlantDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/plant_function"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_feature" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_function"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{plant_data.functionAndApplication}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_function_label"
+                tools:text="1. 樹姿優美，花色多變化，是優良的園藝樹種。\n2. 木材黃白色，質脆易開裂，可為板材和家具用材。" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_update_label"
+                style="@style/TertiaryTextStyle.PlantDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/plant_update"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_function" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_update"
+                style="@style/TertiaryTextStyle.PlantDetailContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{plant_data.update}"
+                app:layout_constraintStart_toEndOf="@id/tv_update_label"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_update_label"
+                tools:text="2017/9/4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
